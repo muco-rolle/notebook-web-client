@@ -1,0 +1,27 @@
+{
+    "presets": [["next/babel"]],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "alias": {
+                    "@app/components": "./src/app/components",
+                    "@app/views": "./src/app/views",
+                    "@app/graphql": "./src/app/graphql",
+                    "@app/theme": "./src/app/theme",
+                    "@utils": "./src/utils",
+                    "@config": "./src/config"
+                }
+            }
+        ],
+        ["styled-components", { "ssr": true }]
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                ["@babel/preset-env", { "modules": false }],
+                "next/babel"
+            ]
+        }
+    }
+}

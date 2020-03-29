@@ -3,12 +3,16 @@ import { ThemeProvider } from 'styled-components';
 import { ApolloProvider } from '@apollo/react-hooks';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import ReactNotification from 'react-notifications-component';
 
 import { NextWithApollo } from '@config';
 import { theme } from '@app/theme';
 
 // rsuite styles
 import 'rsuite/lib/styles/index.less';
+
+// react notification styles
+import 'react-notifications-component/dist/theme.css';
 
 // fonts
 import 'typeface-noto-sans';
@@ -35,6 +39,7 @@ function App(props: IAppProps) {
     return (
         <ApolloProvider client={apollo}>
             <ThemeProvider theme={theme}>
+                <ReactNotification />
                 <DocumentHead />
                 <GlobalStyles />
                 <Component {...pageProps} />

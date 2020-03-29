@@ -1,19 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Form, Input, Button } from 'rsuite';
-import { validationSchemas } from '@config';
-import { FormField, Logo, AuthLayout } from '@app/components';
+import { useMutation } from '@apollo/react-hooks';
 
+import { validationSchemas } from '@config';
+import { FormField, AuthLayout } from '@app/components';
+import { SIGNUP_USER } from '@app/graphql';
+
+interface ISignupUser {
+    username: string;
+    email: string;
+    password: string;
+}
 export const SignupForm = () => {
+    const [signupUser, { data, loading, error }] = useMutation<{
+        user: ISignupUser;
+    }>(SIGNUP_USER);
+
     // TODO: add form types
     let form: any = null;
 
     const [formValue, setFormValue] = React.useState({
         username: '',
+        email: '',
         password: ''
     });
 
     const [formError, setFormError] = React.useState({});
+
+    if (data) {
+        console.log(data);
+    }
+
+    if (error) {
+        console.log(error.message);
+    }
 
     const handleSubmit = async () => {
         /*
@@ -24,6 +44,7 @@ export const SignupForm = () => {
             console.log(formError);
             return;
         }
+        signupUser({ variables: { ...formValue } });
     };
 
     return (
@@ -41,16 +62,16 @@ export const SignupForm = () => {
                 autoComplete="off"
             >
                 <FormField
-                    type="email"
-                    name="email"
-                    placeholder={'enter your email'}
+                    type="text"
+                    name="username"
+                    placeholder={'enter your username'}
                     component={Input}
                 />
 
                 <FormField
-                    type="text"
-                    name="username"
-                    placeholder={'enter your username'}
+                    type="email"
+                    name="email"
+                    placeholder={'enter your email'}
                     component={Input}
                 />
 
@@ -65,6 +86,7 @@ export const SignupForm = () => {
                     appearance="primary"
                     block
                     onClick={handleSubmit}
+                    loading={loading}
                     size="lg"
                 >
                     Signup

@@ -42,7 +42,8 @@ export const GlobalStyles = createGlobalStyle`
         border-radius: 3px;
         font-family: inherit;
         color: inherit;
-        font-size: inherit;
+        font-size: 11px;
+        font-weight: 600;
         border-width: 2px;
         background-color: transparent;
 

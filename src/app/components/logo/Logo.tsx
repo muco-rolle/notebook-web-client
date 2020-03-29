@@ -8,8 +8,10 @@ interface ILogo {
     className?: string;
 }
 
-export const StyledLogo = styled.h1`
+export const StyledLogo = styled.div`
+    text-align: center;
     font-family: 'Grand Hotel', cursive;
+    font-size: 40px;
     a {
         color: ${greyColor(5)};
         &:hover {
@@ -20,7 +22,7 @@ export const StyledLogo = styled.h1`
 `;
 
 export const Logo = (props: ILogo) => (
-    <StyledLogo>
+    <StyledLogo className={props.className}>
         <NextLink url={routes.home}>{props.children}</NextLink>
     </StyledLogo>
 );

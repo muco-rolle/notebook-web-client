@@ -25,6 +25,12 @@ const StyledIntro = styled.div`
             height: 400px;
         }
     }
+
+    .buttons {
+        button:first-child {
+            margin-right: 40px;
+        }
+    }
 `;
 
 export function Intro() {
@@ -38,8 +44,12 @@ export function Intro() {
                 </p>
 
                 <div className="buttons">
-                    <Button appearance="primary">start reading</Button>
-                    <Button appearance="primary">start writting</Button>
+                    <Button appearance="primary" size="lg">
+                        start reading
+                    </Button>
+                    <Button appearance="primary" size="lg">
+                        start writting
+                    </Button>
                 </div>
             </div>
             <div className="intro-image">

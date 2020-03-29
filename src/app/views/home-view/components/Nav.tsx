@@ -23,7 +23,8 @@ const StyledNav = styled.nav`
 
         .signup-button {
             padding: 8px 15px;
-            border-radius: 100px;
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             background-color: ${primaryColor(5)};
             color: white;
             transition: color 0.2s;

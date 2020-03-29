@@ -11,6 +11,8 @@ const StyledHeader = styled.header`
 
     .logo {
         color: ${greyColor(5)};
+        font-weight: 700;
+        font-size: 45px;
     }
 `;
 

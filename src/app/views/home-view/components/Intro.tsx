@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Button } from 'rsuite';
 import { greyColor } from '@utils';
+import { NextLink } from '@app/components';
+import { routes } from '@config';
 
 const StyledIntro = styled.div`
     display: flex;
@@ -44,12 +46,17 @@ export function Intro() {
                 </p>
 
                 <div className="buttons">
-                    <Button appearance="primary" size="lg">
-                        start reading
-                    </Button>
-                    <Button appearance="primary" size="lg">
-                        start writting
-                    </Button>
+                    <NextLink url={routes.signup}>
+                        <Button appearance="primary" size="lg">
+                            start reading
+                        </Button>
+                    </NextLink>
+
+                    <NextLink url={routes.signup}>
+                        <Button appearance="primary" size="lg">
+                            start writting
+                        </Button>
+                    </NextLink>
                 </div>
             </div>
             <div className="intro-image">

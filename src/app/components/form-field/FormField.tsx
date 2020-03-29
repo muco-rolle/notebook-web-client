@@ -1,57 +1,26 @@
 import React from 'react';
-import { Form, FormControl, FormGroup } from 'rsuite';
-import styled from 'styled-components';
+import { FormGroup, FormControl } from 'rsuite';
 
-// export const FormGroup = props => (
-//     <FormGroup {...props}>{props.children}</FormGroup>
-// );
-
-// export const FormControl = props => (
-//     <FormControl {...props}>{props.children}</FormControl>
-// );
-
-const StyledFormField = styled(FormGroup)`
-    margin-bottom: 20px;
-
-    .rs-form-control-wrapper {
-        width: 100%;
-    }
-    .rs-input {
-        background-color: white;
-        width: 100%;
-        border-radius: 3px;
-        font-family: inherit;
-        color: inherit;
-        font-size: inherit;
-
-        &:-webkit-autofill,
-        &:-webkit-autofill:hover,
-        &:-webkit-autofill:focus,
-        &:-webkit-autofill:active {
-            box-shadow: 0 0 0 30px white inset !important;
-        }
-        &:focus {
-            background-color: white;
-        }
-    }
-`;
-
-interface IFormField {
+interface IFormFieldProps {
     name: string;
-    accepter: React.ReactNode;
+    component?: React.ElementType;
+    label?: string;
+    type?: string;
+    placeholder: string;
+    i18n?: boolean;
 }
 
-export const FormField = (props: any) => {
-    const { name, accepter } = props;
-
+export const FormField = (props: IFormFieldProps) => {
+    const { name, type, placeholder, component } = props;
     return (
-        <StyledFormField>
+        <FormGroup>
             <FormControl
+                type={type}
                 name={name}
-                accepter={accepter}
-                placeholder={props.label}
-                {...props}
+                placeholder={placeholder}
+                accepter={component}
+                size="lg"
             />
-        </StyledFormField>
+        </FormGroup>
     );
 };

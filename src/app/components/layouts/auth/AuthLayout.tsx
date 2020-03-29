@@ -1,39 +1,39 @@
 import styled from 'styled-components';
+import { Logo } from '@app/components';
 
 interface IAuthLayout {
     children: React.ReactNode;
 }
 
 const StyledAuthLayout = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.7),
-            rgba(0, 0, 0, 0.7)
-        ),
-        url('/images/hero.jpg');
-    background-size: cover;
-    background-position: center center;
+    width: 400px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 31px;
 
-    .authCard {
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
-        border-radius: 5px;
-        background-image: linear-gradient(
-                to right,
-                rgba(0, 0, 0, 0.7),
-                rgba(0, 0, 0, 0.7)
-            ),
-            url('/images/hero.jpg');
-        background-size: cover;
-        background-position: center center;
+    .logo,
+    .form-title {
+        text-align: center;
+    }
+    .logo {
+        text-align: center;
+        padding-top: 30px;
+        a {
+            font-weight: 900 !important;
+        }
+    }
+
+    .logo-auth {
+        padding: 20px;
+        font-weight: 700;
+    }
+
+    form {
+        padding: 0 30px 30px 30px;
     }
 `;
 
 export const AuthLayout = (props: IAuthLayout) => (
     <StyledAuthLayout>
-        <div className="authCard">{props.children}</div>
+        <Logo className="logo-auth">notebook</Logo>
+        {props.children}
     </StyledAuthLayout>
 );

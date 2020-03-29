@@ -1,15 +1,15 @@
 import styled from 'styled-components';
+import { Header, Intro } from './components';
 
-const StyledHomeView = styled.div``;
+const StyledHomeView = styled.div`
+    height: 100vh;
+`;
 
 export function HomeView() {
     return (
         <StyledHomeView>
-            <h1>Welcome to Notebook</h1>
-            <p>
-                Build your brand recognition and get detailed insights on how
-                your links are performing.
-            </p>
+            <Header />
+            <Intro />
         </StyledHomeView>
     );
 }

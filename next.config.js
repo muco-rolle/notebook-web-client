@@ -9,7 +9,6 @@ module.exports = withLess(
         lessLoaderOptions: {
             javascriptEnabled: true,
             modifyVars: {
-                '@text-color': '#34303E',
                 '@primary-color': '#2BD1D1',
                 '@base-color': '#2BD1D1',
                 '@text-color': '#34303E',

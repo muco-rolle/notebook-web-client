@@ -31,7 +31,7 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
         console.log(networkError);
         notify({
             type: 'danger',
-            title: 'Network Error',
+            title: 'Network Problem',
             message: 'Please check your network connection!'
         });
     }

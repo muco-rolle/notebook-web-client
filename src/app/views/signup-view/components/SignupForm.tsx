@@ -2,9 +2,10 @@ import React from 'react';
 import { Form, Input, Button } from 'rsuite';
 import { useMutation } from '@apollo/react-hooks';
 
-import { validationSchemas } from '@config';
+import { validationSchemas, routes } from '@config';
 import { FormField, AuthLayout } from '@app/components';
 import { SIGNUP_USER } from '@app/graphql';
+import { notify, redirectTo } from '@utils';
 
 interface ISignupUser {
     username: string;
@@ -12,9 +13,7 @@ interface ISignupUser {
     password: string;
 }
 export const SignupForm = () => {
-    const [signupUser, { data, loading, error }] = useMutation<{
-        user: ISignupUser;
-    }>(SIGNUP_USER);
+    const [signupUser, { data, loading, error }] = useMutation(SIGNUP_USER);
 
     // TODO: add form types
     let form: any = null;
@@ -27,14 +26,6 @@ export const SignupForm = () => {
 
     const [formError, setFormError] = React.useState({});
 
-    if (data) {
-        console.log(data);
-    }
-
-    if (error) {
-        console.log(error.message);
-    }
-
     const handleSubmit = async () => {
         /*
 		second exclamation mark to prevent 
@@ -44,7 +35,23 @@ export const SignupForm = () => {
             console.log(formError);
             return;
         }
-        signupUser({ variables: { ...formValue } });
+
+        const response = await signupUser({ variables: { ...formValue } });
+
+        if (response.data) {
+            const { username, email } = response.data.signup;
+
+            notify({
+                type: 'success',
+                title: `${username} Signed up successfully`,
+                message: `Please check your inbox we sent you a validation code on ${email}.`,
+                duration: 20000
+            });
+
+            redirectTo(routes.activateAccount);
+        }
+
+        console.log(response.data.signup.username);
     };
 
     return (

@@ -6,3 +6,10 @@ export const signupRules = {
     ],
     password: [{ required: true, message: "Password is required" }],
 };
+
+export const loginRules = {
+    emailOrPassword: [
+        { required: true, message: "Email or Username is required" },
+    ],
+    password: signupRules.password,
+};

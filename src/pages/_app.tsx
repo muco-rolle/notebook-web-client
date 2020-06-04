@@ -1,5 +1,7 @@
 import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
+import { ApolloProvider } from "react-apollo-hooks";
+import { ApolloClient } from "apollo-client";
 import Router from "next/router";
 import NProgress from "nprogress";
 
@@ -12,15 +14,20 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 
 Router.events.on("routeChangeError", () => NProgress.done());
 
-const MyApp = (props: AppProps) => {
+interface MyAppProps extends AppProps {
+    client: ApolloClient<{}>;
+}
+const MyApp = (props: MyAppProps) => {
     const theme = {};
-    const { Component, pageProps } = props;
+    const { Component, pageProps, client } = props;
 
     return (
-        <ThemeProvider theme={theme}>
-            <DocumentHead />
-            <Component {...pageProps} />
-        </ThemeProvider>
+        <ApolloProvider client={client}>
+            <ThemeProvider theme={theme}>
+                <DocumentHead />
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </ApolloProvider>
     );
 };
 

@@ -13,3 +13,7 @@ export const loginRules = {
     ],
     password: signupRules.password,
 };
+
+export const verifyAccountRules = {
+    code: [{ required: true, message: "Code is required" }],
+};

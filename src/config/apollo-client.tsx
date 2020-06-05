@@ -30,9 +30,10 @@ const authLink = setContext((_, { headers }) => {
 const errorLink = onError(({ graphQLErrors, networkError }) => {
     if (networkError) {
         notify({
-            type: "danger",
-            title: "Network Problem",
-            message: "Please check your network connection!",
+            type: "error",
+            message: "Network Problem",
+            duration: 10000,
+            description: "Please check your network connection!",
         });
     }
 });

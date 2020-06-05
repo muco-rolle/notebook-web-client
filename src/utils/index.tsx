@@ -1,3 +1,3 @@
 export * from "./router";
 export * from "./storage";
-export * from "./notification";
+export * from "./feedback";

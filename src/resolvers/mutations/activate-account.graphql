@@ -1,0 +1,7 @@
+mutation activateAccount($code: String!) {
+    activateAccount(code: $code) {
+        username
+        active
+        token
+    }
+}

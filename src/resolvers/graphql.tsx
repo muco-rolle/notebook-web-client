@@ -237,6 +237,17 @@ export type CommentInput = {
     content: Scalars["String"];
 };
 
+export type ActivateAccountMutationVariables = {
+    code: Scalars["String"];
+};
+
+export type ActivateAccountMutation = { __typename?: "Mutation" } & {
+    activateAccount: { __typename?: "ActivateAccount" } & Pick<
+        ActivateAccount,
+        "username" | "active" | "token"
+    >;
+};
+
 export type SignupMutationVariables = {
     username: Scalars["String"];
     email: Scalars["String"];
@@ -247,6 +258,58 @@ export type SignupMutation = { __typename?: "Mutation" } & {
     signup: { __typename?: "Signup" } & Pick<Signup, "email" | "username">;
 };
 
+export const ActivateAccountDocument = gql`
+    mutation activateAccount($code: String!) {
+        activateAccount(code: $code) {
+            username
+            active
+            token
+        }
+    }
+`;
+export type ActivateAccountMutationFn = ApolloReactCommon.MutationFunction<
+    ActivateAccountMutation,
+    ActivateAccountMutationVariables
+>;
+
+/**
+ * __useActivateAccountMutation__
+ *
+ * To run a mutation, you first call `useActivateAccountMutation` within a React component and pass it any options that fit your needs.
+ * When your component renders, `useActivateAccountMutation` returns a tuple that includes:
+ * - A mutate function that you can call at any time to execute the mutation
+ * - An object with fields that represent the current status of the mutation's execution
+ *
+ * @param baseOptions options that will be passed into the mutation, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options-2;
+ *
+ * @example
+ * const [activateAccountMutation, { data, loading, error }] = useActivateAccountMutation({
+ *   variables: {
+ *      code: // value for 'code'
+ *   },
+ * });
+ */
+export function useActivateAccountMutation(
+    baseOptions?: ApolloReactHooks.MutationHookOptions<
+        ActivateAccountMutation,
+        ActivateAccountMutationVariables
+    >
+) {
+    return ApolloReactHooks.useMutation<
+        ActivateAccountMutation,
+        ActivateAccountMutationVariables
+    >(ActivateAccountDocument, baseOptions);
+}
+export type ActivateAccountMutationHookResult = ReturnType<
+    typeof useActivateAccountMutation
+>;
+export type ActivateAccountMutationResult = ApolloReactCommon.MutationResult<
+    ActivateAccountMutation
+>;
+export type ActivateAccountMutationOptions = ApolloReactCommon.BaseMutationOptions<
+    ActivateAccountMutation,
+    ActivateAccountMutationVariables
+>;
 export const SignupDocument = gql`
     mutation signup($username: String!, $email: String!, $password: String!) {
         signup(

@@ -38,7 +38,7 @@ export const VerifyAccountView = () => {
 
     return (
         <AuthLayout documentTitle="Verify Account">
-            <VerifyAccountForm handleSubmit={handleSubmit} loading={false} />
+            <VerifyAccountForm handleSubmit={handleSubmit} loading={loading} />
         </AuthLayout>
     );
 };

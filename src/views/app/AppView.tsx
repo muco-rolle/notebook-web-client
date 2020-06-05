@@ -1,3 +1,9 @@
+import { AppLayout } from "layouts";
+
 export const AppView = () => {
-    return <h1>App View</h1>;
+    return (
+        <AppLayout documentTitle="Popular Books">
+            <h1>App Content over here</h1>
+        </AppLayout>
+    );
 };

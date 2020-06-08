@@ -17,10 +17,12 @@ interface AppLayoutProps {
 const StyledAppLayout = styled(Layout)`
     .content-layout {
         margin-left: 250px;
+        background-color: white;
     }
 
     .main-content {
         margin: 24px 16px 0;
+        margin-top: 100px;
         overflow: initial;
     }
 

@@ -13,13 +13,13 @@ import {
 } from "@ant-design/icons";
 
 const StyledSidebar = styled(Layout.Sider)`
-    position: fixed;
     overflow: auto;
     height: 100vh;
     position: fixed;
     left: 0;
-    background: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 70px;
+    width: 250;
+    box-shadow: 0 1px 15px rgba(0, 0, 0, 0.04), 0 1px 6px rgba(0, 0, 0, 0.04);
 
     .logo {
         padding: 30px;
@@ -50,6 +50,7 @@ export const Sidebar = () => {
             collapsedWidth="0"
             width={250}
             className="sidebar"
+            theme="light"
         >
             <div className="logo">
                 <NextLink href={routes.app}>
@@ -79,25 +80,6 @@ export const Sidebar = () => {
                     <NextLink href="/app">My Publication</NextLink>
                 </Menu.Item>
 
-                <Menu.Item key="4" icon={<StarOutlined />}>
-                    <NextLink href="/app">My Favourites</NextLink>
-                </Menu.Item>
-
-                <Menu.Item key="4" icon={<StarOutlined />}>
-                    <NextLink href="/app">My Favourites</NextLink>
-                </Menu.Item>
-                <Menu.Item key="4" icon={<StarOutlined />}>
-                    <NextLink href="/app">My Favourites</NextLink>
-                </Menu.Item>
-                <Menu.Item key="4" icon={<StarOutlined />}>
-                    <NextLink href="/app">My Favourites</NextLink>
-                </Menu.Item>
-                <Menu.Item key="4" icon={<StarOutlined />}>
-                    <NextLink href="/app">My Favourites</NextLink>
-                </Menu.Item>
-                <Menu.Item key="4" icon={<StarOutlined />}>
-                    <NextLink href="/app">My Favourites</NextLink>
-                </Menu.Item>
                 <Menu.Item key="4" icon={<StarOutlined />}>
                     <NextLink href="/app">My Favourites</NextLink>
                 </Menu.Item>

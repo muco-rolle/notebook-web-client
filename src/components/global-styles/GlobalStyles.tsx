@@ -25,4 +25,17 @@ export const GlobalStyles = createGlobalStyle`
         outline: 0;
         box-shadow: none !important;
     }
+
+    body::-webkit-scrollbar, aside::-webkit-scrollbar {
+        width: 12px;                  
+    }
+
+    body::-webkit-scrollbar-track, aside::-webkit-scrollbar-track {
+         background: transparent;        /* color of the tracking area */
+    }
+
+    body::-webkit-scrollbar-thumb, aside::-webkit-scrollbar-thumb {
+        background-color: #CCCCCC;    /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+    }
 `;
